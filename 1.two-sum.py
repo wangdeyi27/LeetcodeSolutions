@@ -31,4 +31,16 @@
 #
 class Solution:
     def twoSum(self, nums: 'List[int]', target: 'int') -> 'List[int]':
-        
+        res = []
+        i = 0
+        j = len(nums) - 1
+        for k in range(0, len(nums)):
+            if nums[i] + nums[j] < target:
+                i += 1
+            elif nums[i] + nums[j] > target:
+                j -= 1
+            else:
+                break
+        res.append(i)
+        res.append(j)
+        return res
