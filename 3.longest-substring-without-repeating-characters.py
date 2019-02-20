@@ -49,4 +49,18 @@
 #
 class Solution:
     def lengthOfLongestSubstring(self, s: 'str') -> 'int':
-        
+        max = cur = 0
+        j = 0
+        dict = {}
+        for i in range(0, len(s)):
+            cur += 1
+            if s[i] not in dict or dict[s[i]] == 0:
+                dict[s[i]] = 1
+                max = cur if cur > max else max
+            else:
+                dict[s[i]] += 1
+                while dict[s[i]] > 1:
+                    dict[s[j]] -= 1
+                    cur -= 1
+                    j += 1
+        return max
