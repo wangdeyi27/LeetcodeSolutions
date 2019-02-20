@@ -35,11 +35,6 @@
 
 class Solution:
     def addTwoNumbers(self, l1: 'ListNode', l2: 'ListNode') -> 'ListNode':
-        if l1 is None:
-            return l2
-        if l2 is None:
-            return l1
-
         head = ListNode(0)
         node = head
         carry = 0
