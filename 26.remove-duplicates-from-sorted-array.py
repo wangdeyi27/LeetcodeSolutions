@@ -68,7 +68,7 @@ class Solution:
                 if nums[i] > tmp:
                     nums[res] = nums[i]
                     res += 1
-                tmp = nums[i]
+                    tmp = nums[i]
         else:
             res = 0
         return res
