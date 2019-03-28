@@ -81,14 +81,8 @@
 #
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        res = set()
-        for i in range(0, 9):
-            for j in range(0, 9):
-                if board[i][j]!='.':
-                    tmp = board[i][j]
-                    if (i, tmp) in res or (tmp, j) in res or (i//3, j//3, tmp) in res:
-                        return False
-                    res.add((i, tmp))
-                    res.add((tmp, j))
-                    res.add((i//3, j//3, tmp))
-        return True
+        seen = sum(([(i, c), (c, j), (i//3, j//3, c)]
+                   for i, row in enumerate(board)
+                   for j, c in enumerate(row)
+                   if c != '.'), [])
+        return len(seen) == len(set(seen))
