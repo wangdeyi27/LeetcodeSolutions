@@ -57,10 +57,10 @@ class Solution:
         return res
 
     def dfs(self, nums, tar, index, cur, res) -> None:
-        if tar < 0:
-            return
         if tar == 0:
             res.append(cur)
+            return
+        if tar < nums[0]:
             return
         for i in range(index, len(nums)):
             self.dfs(nums, tar-nums[i], i, cur+[nums[i]], res)
