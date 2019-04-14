@@ -52,12 +52,12 @@ class Solution:
             return False
         row, col = len(matrix), len(matrix[0])
         low, high = 0, row * col - 1
-        while low < high:
+        while low <= high:
             mid = (low + high) // 2
             if matrix[mid//col][mid%col] == target:
                 return True
             elif matrix[mid//col][mid%col] < target:
                 low = mid + 1
             else:
-                high = mid
-        return matrix[high//col][high%col] == target
+                high = mid - 1
+        return False
