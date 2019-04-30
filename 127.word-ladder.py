@@ -74,8 +74,8 @@ class Solution:
         wordList = set(wordList)
         word_len = len(beginWord)
         while front:
-            dist += 1
             next_front = set()
+            dist += 1
             for word in front:
                 for i in range(word_len):
                     for c in string.ascii_lowercase:
