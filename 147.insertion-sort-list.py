@@ -73,6 +73,5 @@ class Solution:
                 node = dummy
             while node.next.val <= val:
                 node = node.next
-            tmp = cur.next
-            cur.next, tmp.next, node.next = tmp.next, node.next, tmp
+            node.next, cur.next.next, cur.next = cur.next, node.next, cur.next.next
         return dummy.next
