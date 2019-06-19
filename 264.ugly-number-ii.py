@@ -35,8 +35,10 @@ class Solution:
         ugly = [1]
         i2 = i3 = i5 = 0
         while len(ugly) < n:
-            while ugly[i2] * 2 <= ugly[-1]: i2 += 1
-            while ugly[i3] * 3 <= ugly[-1]: i3 += 1
-            while ugly[i5] * 5 <= ugly[-1]: i5 += 1
-            ugly.append(min(ugly[i2] * 2, ugly[i3] * 3, ugly[i5] * 5))
+            u2, u3, u5 = 2 * ugly[i2], 3 * ugly[i3], 5 * ugly[i5]
+            umin = min((u2, u3, u5))
+            if u2 == umin: i2 += 1
+            if u3 == umin: i3 += 1
+            if u5 == umin: i5 += 1
+            ugly.append(umin)
         return ugly[-1]
