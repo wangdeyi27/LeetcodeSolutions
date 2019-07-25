@@ -36,8 +36,8 @@ class Solution:
         d = {}
         ct = len(t)
         for c in t:
-            if c in d: d[c]+=1
-            else: d[c]=1
+            if c in d: d[c] += 1
+            else: d[c] = 1
                 
         counter = 0
         left = 0
@@ -46,16 +46,16 @@ class Solution:
         
         for idx, c in enumerate(s):
             if c in d:
-                d[c]-=1
-                if d[c]>=0:
-                    counter+=1
-                while counter==ct:
+                d[c] -= 1
+                if d[c] >= 0:
+                    counter += 1
+                while counter == ct:
                     if s[left] in d:
-                        if min_len>(idx-left+1):
-                            min_len=idx-left+1
+                        if min_len > (idx-left+1):
+                            min_len = idx-left+1
                             res = s[left:idx+1]                        
-                        d[s[left]]+=1
-                        if d[s[left]]>0:
-                            counter-=1
-                    left+=1
+                        d[s[left]] += 1
+                        if d[s[left]] > 0:
+                            counter -= 1
+                    left += 1
         return res        
